@@ -47,7 +47,9 @@ assign(Client_PG.prototype, {
   driverName: 'pg',
 
   _driver() {
-    return require('pg')
+    var pg = require('pg');
+    pg.defaults.ssl = false;
+    return pg;
   },
 
   _escapeBinding: makeEscape({
